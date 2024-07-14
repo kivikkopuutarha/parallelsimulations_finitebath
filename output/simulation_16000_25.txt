@@ -1,0 +1,18 @@
+[Warning: Imaginary parts of complex X and/or Y arguments ignored.] 
+[Warning: Imaginary parts of complex X and/or Y arguments ignored.] 
+[> In run_all (line 122)] 
+[> In run_all (line 122)] 
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+The simulation for
+Long-time evolution for 16000 spins with 25 iterations
+The simulation for
+Long-time evolution for 16000 spins with 25 iterations
+was completed in: 1529.7172 seconds
+using parallelisation type GPU
+with 1 CPUs
+was completed in: 1529.728 seconds
+using parallelisation type GPU
+with 1 CPUs
