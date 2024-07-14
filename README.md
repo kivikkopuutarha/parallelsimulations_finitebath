@@ -2,47 +2,34 @@
 
 
 
-## Getting started
+## Description
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+A collection of MATLAB functions and scripts to simulate the time evolution of a qubit coupled to a finite spins bath.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+The collection is optimised for parallel computations of three different types:
 
-## Add your files
+- [ ] Vectorisation only, for usage in single CPU, without GPU [modular](#editing-this-readme)
+- [ ] Multicore, for usage in a single supercomputer node with multiple CPUs and shared RAM, without GPU [multicore](#editing-this-readme)
+- [ ] GPU, for usage in single CPU, with GPU [GPU](#editing-this-readme)
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
+To run the simulation in [Aalto's Triton cluster](https://scicomp.aalto.fi/triton/), after cloning the repository, copy the provided testing sbatch script (script.sh) at your home folder:
 ```
-cd existing_repo
-git remote add origin https://version.aalto.fi/gitlab/tsiorms1/parallelsimulations_finitebath.git
-git branch -M main
-git push -uf origin main
+/home/{USERNAME}
+```
+and edit it to modify the specifications of the hardware as needed.
+
+The specifications of the simulation are defined in the MATLAB script run_all.m which is located in the scr folder:
+```
+/home/{USERNAME}/parallelsimulations_finitebath/src
+```
+Read carefully the comments on the code before you modify them.
+
+The sbatch script should be called from inside the src folder, with:
+```
+sbatch ~/script.sh
 ```
 
-## Integrate with your tools
 
-- [ ] [Set up project integrations](https://version.aalto.fi/gitlab/tsiorms1/parallelsimulations_finitebath/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
 
 # Editing this README
 
