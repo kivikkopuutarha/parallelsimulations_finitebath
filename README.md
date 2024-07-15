@@ -56,8 +56,5 @@ If you need help on running this simulation, please contact with the author by [
 ## Authors and acknowledgment
 The code collection for this simulation is the work of Stergios Tsiormpatzis. The original code as used without parallelisation and modular optimisation was kindly provided by Ilari Mäkinen.
 
-## License
-[MIT license](https://opensource.org/license/mit)
-
 ## Project status
 This repository is the product of a Bachelor Thesis and will be finalised in Autumn 2024. Further development and improvements are welcomed!
