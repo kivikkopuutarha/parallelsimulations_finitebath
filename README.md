@@ -9,7 +9,7 @@ The collection is optimised for parallel computations of three different types:
 - [ ] GPU, for usage in single CPU, with GPU [GPU](#GPU)
 
 ## Installation
-Besides the [requirements](#Requirements), no other software is required to run the simulation. It is advised to clone the present repository directly using git:
+Besides the [requirements](https://version.aalto.fi/gitlab/tsiorms1/parallelsimulations_finitebath/-/raw/main/requirements.txt), no other software is required to run the simulation. It is advised to clone the present repository directly using git:
 ```
 git clone git@version.aalto.fi:tsiorms1/parallelsimulations_finitebath.git
 ```
