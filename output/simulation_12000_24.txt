@@ -1,0 +1,14 @@
+Starting parallel pool (parpool) using the 'Processes' profile ...
+Connected to parallel pool with 2 workers.
+[Warning: Imaginary parts of complex X and/or Y arguments ignored.] 
+[> In run_multi_all (line 96)] 
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+The simulation for
+Long-time evolution for 12000 spins with 24 iterations
+was completed in:
+604.1446 seconds
+using
+2
+CPUs and a GPU
+Parallel pool using the 'Processes' profile is shutting down.
