@@ -77,7 +77,9 @@ gge_results = zeros(N+1, Nr);
 
 
 if strcmp(type, 'multicore')
-    % Initiate the parallel poll.
+    % Initiate the parallel poll. In local environment uncomment the next line...
+    % parpool
+    % ... and comment the next line.
     initParPool()
     % Initialize the random number generator with the Multiplicative lagged
     % Fibonacci generator, for multiple workers in parallel
