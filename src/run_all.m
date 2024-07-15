@@ -28,10 +28,10 @@ tic;
 % The total number of two level systems (TLSs) in the bath.
 % The intially excited state, the qubit, is not considered to be
 % part of the bath. Therefore N+1 is the overall number of TLSs
-N = 500;
+N = 1500;
 
 % Number of independent, random iterations
-Nr = 5;
+Nr = 25;
 
 % The frequency of the qubit.
 % Take it normalized to 1 for simpler calculations
@@ -84,7 +84,7 @@ if strcmp(type, 'multicore')
     s = RandStream.create('mlfg6331_64','NumStreams', Nr,'Seed',...
     'shuffle', 'CellOutput',true);
     % Iterrate Nr times
-    for idx = 1:Nr
+    parfor idx = 1:Nr
     RandStream.setGlobalStream(s{idx});
     H = total_hamiltonian (N,w,mutual,gamma, omega_j);
     [vel, el] = diagonal (H);
