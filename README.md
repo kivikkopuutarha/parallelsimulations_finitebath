@@ -8,10 +8,6 @@ The collection is optimised for parallel computations of three different types:
 - [ ] Multicore, for usage in a single supercomputer node with multiple CPUs and shared RAM, without GPU [multicore](#Multicore)
 - [ ] GPU, for usage in single CPU, with GPU [GPU](#GPU)
 
-## Requirements
-- MATLAB r2023b (installed in Triton during the testing), tested up to R2024a update 3 (in local environment)
-- MATLAB Parallel computing toolbox
-
 ## Installation
 Besides the [requirements](#Requirements), no other software is required to run the simulation. It is advised to clone the present repository directly using git:
 ```
