@@ -1,0 +1,7 @@
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+The simulation for
+Long-time evolution for 10000 spins with 25 iterations
+was completed in: 34641.6435 seconds
+using parallelisation type modular
+with 1 CPUs
