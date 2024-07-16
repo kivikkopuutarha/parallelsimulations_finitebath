@@ -149,6 +149,9 @@ end
 % Define characteristics for the image
 exportgraphics(gcf, fullFilePath, 'Resolution', 300);
 
+% If multicore in local environment unccoment the following line
+% delete(gcp('nocreate'));
+
 % Output display
 disp('The simulation for')
 disp(out1)
