@@ -1,0 +1,48 @@
+Starting parallel pool (parpool) using the 'Processes' profile ...
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+Connected to parallel pool with 25 workers.
+[Warning: A worker aborted during execution of the parfor loop. The parfor loop
+will now run again on the remaining workers.] 
+[> In parallel.internal.parfor/ParforEngine/handleIntervalErrorResult (line 287)
+In parallel.internal.parfor/ParforEngine/getCompleteIntervals (line 230)
+In parallel_function>distributed_execution (line 746)
+In parallel_function (line 578)
+In run_all (line 89)] 
+[Warning: A worker aborted during execution of the parfor loop. The parfor loop
+will now run again on the remaining workers.] 
+[> In parallel.internal.parfor/ParforEngine/handleIntervalErrorResult (line 287)
+In parallel.internal.parfor/ParforEngine/getCompleteIntervals (line 230)
+In parallel_function>distributed_execution (line 746)
+In parallel_function (line 578)
+In run_all (line 89)] 
+[Warning: A worker aborted during execution of the parfor loop. The parfor loop
+will now run again on the remaining workers.] 
+[> In parallel.internal.parfor/ParforEngine/handleIntervalErrorResult (line 287)
+In parallel.internal.parfor/ParforEngine/getCompleteIntervals (line 230)
+In parallel_function>distributed_execution (line 746)
+In parallel_function (line 578)
+In run_all (line 89)] 
+[Warning: A worker aborted during execution of the parfor loop. The parfor loop
+will now run again on the remaining workers.] 
+[> In parallel.internal.parfor/ParforEngine/handleIntervalErrorResult (line 287)
+In parallel.internal.parfor/ParforEngine/getCompleteIntervals (line 230)
+In parallel_function>distributed_execution (line 746)
+In parallel_function (line 578)
+In run_all (line 89)] 
+[Warning: A worker aborted during execution of the parfor loop. The parfor loop
+will now run again on the remaining workers.] 
+[> In parallel.internal.parfor/ParforEngine/handleIntervalErrorResult (line 287)
+In parallel.internal.parfor/ParforEngine/getCompleteIntervals (line 230)
+In parallel_function>distributed_execution (line 746)
+In parallel_function (line 578)
+In run_all (line 89)] 
+[Warning: A worker aborted during execution of the parfor loop. The parfor loop
+will now run again on the remaining workers.] 
+[> In parallel.internal.parfor/ParforEngine/handleIntervalErrorResult (line 287)
+In parallel.internal.parfor/ParforEngine/getCompleteIntervals (line 230)
+In parallel_function>distributed_execution (line 746)
+In parallel_function (line 578)
+In run_all (line 89)] 
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 1458397.0 ON fn3 CANCELLED AT 2024-07-18T17:36:46 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 1458397 ON fn3 CANCELLED AT 2024-07-18T17:36:46 DUE TO TIME LIMIT ***
