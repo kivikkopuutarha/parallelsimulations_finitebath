@@ -54,7 +54,7 @@ In this mode, the vectorised code is utilising the Parallel Computing Toolbox fo
 If you need help on running this simulation, please contact with the author by [email](mailto:stergios.tsiormpatzis@aalto.fi)
 
 ## Authors and acknowledgment
-The code collection for this simulation is the work of Stergios Tsiormpatzis. The original code as used without parallelisation and modular optimisation was kindly provided by Ilari Mäkinen.
+The code collection for this simulation is the work of Stergios Tsiormpatzis. The legacy code as used without parallelisation and modular optimisation was kindly provided by Ilari Mäkinen.
 
 ## Project status
 This repository is the product of a Bachelor Thesis and will be finalised in Autumn 2024. Further development and improvements are welcomed!
