@@ -20,20 +20,24 @@
 
 function E1 = time_evolution (N, hbar, tmax, vel, el, rho0)
 
-% Time-evolution operator U(t)=exp(-iHt/hbar)
-% in the eigenbasis of the Hamiltonian
-U_t = expm((-1i/hbar)*tmax*el);
+spmd
 
-% Spectral decomposition of the time-evolution operator
-U_op = vel*U_t*(vel');
+    % Time-evolution operator U(t)=exp(-iHt/hbar)
+    % in the eigenbasis of the Hamiltonian
+    U_t = expm((-1i/hbar)*tmax*el);
 
-% Formal solution of Liouville-von Neumann equation
-% rho(t) = U(t)*rho(0)*U(t)^dagger
-rho_t = U_op*rho0*(U_op');
+    % Spectral decomposition of the time-evolution operator
+    U_op = vel*U_t*(vel');
 
-% A column (N+1) vector with the diagonal elements (probabilities of
-% occupying the eigenstates) of the evolved density matrix
-e1 = diag(rho_t);
+    % Formal solution of Liouville-von Neumann equation
+    % rho(t) = U(t)*rho(0)*U(t)^dagger
+    rho_t = U_op*rho0*(U_op');
+
+    % A column (N+1) vector with the diagonal elements (probabilities of
+    % occupying the eigenstates) of the evolved density matrix
+    e1 = diag(rho_t);
+
+end
 
 % The part of the bath only, i.e. N
 E1 = gather(e1(1:N));
