@@ -1,3 +1,5 @@
+% GPU version
+
 % Calculate the numerical GGE prediction for the populations,
 % which is to be compared with the long-time evolution.
 % Basically, we just implement a convolution formula.
