@@ -18,8 +18,8 @@ spmd
     ujt = abs(vel(N+1,:)).^2;
     uki = abs(vel).^2;
     nau = sum(ujt .* uki, 2)';
-    nau = gather(nau);
 end
-nau = nau{1};
+
+nau = gather(nau);
 
 end
