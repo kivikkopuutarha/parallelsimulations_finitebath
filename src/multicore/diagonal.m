@@ -4,6 +4,10 @@
 
 function [vel, el] = diagonal (H)
 
-[vel, el] = eig(H);
+H = distributed(H);
+
+spmd
+    [vel, el] = eig(H);
+end
 
 end
