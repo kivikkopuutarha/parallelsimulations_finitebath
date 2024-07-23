@@ -14,13 +14,12 @@
 function nau = GGE (N, vel)
 
 nau = distributed.zeros(1, N+1);
-ujt = abs(vel(N+1,:)).^2;
-
-for k = 1:(N+1)
-    uki = abs(vel(k,:)).^2;
-    nau(k) = dot(ujt, uki);
+spmd
+    ujt = abs(vel(N+1,:)).^2;
+    uki = abs(vel).^2;
+    nau = sum(ujt .* uki, 2)';
+    nau = gather(nau);
 end
-
-nau = gather(nau);
+nau = nau{1};
 
 end
