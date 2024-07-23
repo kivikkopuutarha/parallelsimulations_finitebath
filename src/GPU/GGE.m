@@ -16,10 +16,8 @@ function nau = GGE (N, vel)
 nau = gpuArray(zeros(1, N+1));
 ujt = abs(vel(N+1,:)).^2;
 
-for k = 1:(N+1)
-    uki = abs(vel(k,:)).^2;
-    nau(k) = dot(ujt, uki);
-end
+uki = abs(vel).^2;
+nau = arrayfun(@(k) dot(ujt, uki(k,:)), 1:(N+1));
 
 nau = gather(nau);
 
