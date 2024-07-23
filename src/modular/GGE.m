@@ -15,10 +15,7 @@ function nau = GGE (N, vel)
 
 nau = zeros(1, N+1);
 ujt = abs(vel(N+1,:)).^2;
-
-for k = 1:(N+1)
-    uki = abs(vel(k,:)).^2;
-    nau(k) = dot(ujt, uki);
-end
+uki = abs(vel).^2;
+nau = sum(ujt .* uki, 2)';
 
 end
