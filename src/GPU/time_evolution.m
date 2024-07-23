@@ -1,3 +1,5 @@
+% GPU version
+
 % A function that time-evolve the initial density matrix and calculates
 % the resulting populations.
 % 
