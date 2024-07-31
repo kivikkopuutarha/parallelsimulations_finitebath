@@ -2,7 +2,7 @@
 #SBATCH --time=00:30:00
 #SBATCH --mem=16G
 #SBATCH --output=simulation.out
-#SBATCH --partition=gpu-debug --gpus=1
+#SBATCH --partition=gpu-h100-80g --gpus=1
 
 module load matlab
 
