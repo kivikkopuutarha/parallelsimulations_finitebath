@@ -1,4 +1,4 @@
-% Multicore version
+% MULTICORE VERSION
 
 % A function that diagonalize the total hamiltonian
 % vel:  the unitary matrix whose columns are the eigenvectors of H
