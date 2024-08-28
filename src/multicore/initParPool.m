@@ -1,13 +1,18 @@
-function initParPool()
-% initializes a parallel pool on a slurm cluster using the correct number
-% of workers based on the SLURM_CPU_PER_TASK environment variable.
+% TRITON MULTICORE VERSION
 
-% Check, whether there is already an open parallel pool, in order to avoid
-% creating a new one.
+% A function that creates a parallel pool on the cluster using the correct
+% number of workers based on the SLURM_CPU_PER_TASK environment variable.
+% Based on material provided by Triton documentation.
+
+function initParPool()
+
+% Check, whether there is already an open parallel pool,
+% in order to avoid creating a new one.
 parpoolOn = ~isempty(gcp('nocreate'));
-% Try-catch expression that quits the Matlab session if your code crashes
+
+% Try-catch expression that quits the Matlab session if the code crashes
 if  ~parpoolOn
-    % get the number of workers based on the available CPUS 
+    % the number of workers based on the available cores 
     num_workers = str2double(getenv('SLURM_CPUS_PER_TASK'));
     
     % Initialize the parallel pool
