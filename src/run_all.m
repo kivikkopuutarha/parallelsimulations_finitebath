@@ -1,5 +1,5 @@
-% A script that can be used to run the simulation of N spins bath in
-% various level of parallelisation (modular linear, GPU parallel, multicore
+% A script that can be used to run the simulation of N spins bath with
+% various types of parallelisation (modular vectorised, GPU parallel, multicore
 % CPU parallel). It should run from inside the src folder.
 
 % Reset the system
@@ -10,14 +10,14 @@ clc
 % Enable long format for higher accuracy in the calculations
 format long
 
-% Initialize the random number generator based on the current time
+% Initialize the pseudo-random number generator based on the current time
 rng("shuffle");
 
 % Define parallelisation type. Accepted values are 'modular', 'GPU',
 % 'multicore'.
 type = 'modular';
 
-% Add the folders of the parallelisation in the path
+% Add the folders of the chosen parallelisation in the path
 addpath(fullfile(pwd, type));
 
 % Begin timing
@@ -30,7 +30,7 @@ tic;
 % part of the bath. Therefore N+1 is the overall number of TLSs
 N = 1500;
 
-% Number of independent, random iterations
+% Number of independent, random iterations, to get a statistic
 Nr = 25;
 
 % The frequency of the qubit.
@@ -47,9 +47,8 @@ hbar = 1;
 mutual = 1;
 
 % Sets the magnitude of the internal coupling strength.
+% For weak coupling regime, smaller of the frequency of the qubit.
 % Taken to be w/(5*sqrt(2)) in the example case.
-% For weak coupling regime, smaller of the frequency of the qubit,
-% but is it enough small? Physical explanation for the choosen value?
 gamma = w/(5*sqrt(2));
 
 % The final time at which the populations are calculated.
@@ -64,52 +63,62 @@ tmax = 8000000000;
 % This is a constant random vector during the iterations.
 omega_j = sort(2*hbar*w*rand(N,1));
 
-% The initial state of the system, bath in the ground state
-% and qubit excited
+% The initial state of the system with the bath in the ground state
+% and the qubit excited
 rho0 = zeros(N+1);
 rho0(N+1, N+1) = 1; 
 
-% The array for collecting the results of long time evolution
+% The array to collect the results of long time evolution
 te_results = zeros(N, Nr);
 
-% The array for collecting the results of the GGE prediction
+% The array to collect the results of the GGE prediction
 gge_results = zeros(N+1, Nr);
 
-
+% Decision based on the parallelisation type choosen at line 18.
 if strcmp(type, 'multicore')
-    % Initiate the parallel poll. In local environment uncomment the next line...
+    % Initiate the parallel poll. The default is for usage in Triton.
+    % In local environment uncomment the next line...
     % parpool
-    % ... and comment the next line.
+    % ...and comment the next line.
     initParPool()
-    % Initialize the random number generator with the Multiplicative lagged
-    % Fibonacci generator, for multiple workers in parallel
+    % Initialize the pseudo-random number generator with the Multiplicative
+    % lagged Fibonacci generator, for multiple workers in parallel
     s = RandStream.create('mlfg6331_64','NumStreams', Nr,'Seed',...
     'shuffle', 'CellOutput',true);
-    % Iterrate Nr times
+    % Iterrate Nr times with Nr separate parallel workers
     parfor idx = 1:Nr
+    % Different pseudo-random generator seed for each parallel worker
     RandStream.setGlobalStream(s{idx});
+    % Construct total Hamiltonian
     H = total_hamiltonian (N,w,mutual,gamma, omega_j);
+    % Diagonalise it
     [vel, el] = diagonal (H);
+    % Time evolution
     E1 = time_evolution (N, hbar, tmax, vel, el, rho0);
+    % Numerical GGE prediction
     nau = GGE (N, vel);
-
+    % Results per iteration in the arrays
     te_results(:, idx) = E1;
     gge_results(:, idx) = nau;
     end
 else
     % Iterrate Nr times
     for idx = 1:Nr
+    % Construct total Hamiltonian
     H = total_hamiltonian (N,w,mutual,gamma, omega_j);
+    % Diagonalise it
     [vel, el] = diagonal (H);
+    % Time evolution
     E1 = time_evolution (N, hbar, tmax, vel, el, rho0);
+    % Numerical GGE prediction
     nau = GGE (N, vel);
-
+    % Results per iteration in the arrays
     te_results(:, idx) = E1;
     gge_results(:, idx) = nau;
     end
 end
 
-% Get the mean of the iterations
+% Get the statistic (mean of the iterations)
 te_results_mean = sum(te_results, 2) / Nr;
 gge_results_mean = sum(gge_results, 2) / Nr;
 
@@ -149,7 +158,8 @@ end
 % Define characteristics for the image
 exportgraphics(gcf, fullFilePath, 'Resolution', 300);
 
-% If multicore in local environment unccoment the following line
+% If multicore at a local environment
+% uncoment the following line to delete the workers pool
 % delete(gcp('nocreate'));
 
 % Output display
