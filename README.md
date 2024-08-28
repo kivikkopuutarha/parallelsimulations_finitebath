@@ -22,7 +22,7 @@ The type of parallelisation used is defined inside the running MATLAB script run
 ```
 The simulation can run both in personal computers and in supercomputer clusters, utilising a single node only.
 
-To run the simulation in [Aalto's Triton cluster](https://scicomp.aalto.fi/triton/), after cloning the repository, copy the provided testing sbatch script (script.sh) at your home folder:
+To run the simulation in [Aalto's Triton cluster](https://scicomp.aalto.fi/triton/), after cloning the repository, copy the provided testing sbatch script (script_.sh) at your home folder:
 ```
 /home/{USERNAME}
 ```
@@ -36,7 +36,7 @@ Read carefully the comments on the code before you modify the specifications of 
 
 The sbatch script should be called from inside the src folder, with:
 ```
-sbatch ~/script.sh
+sbatch ~/script_.sh
 ```
 
 # Parallelisation types
