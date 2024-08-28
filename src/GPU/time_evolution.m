@@ -1,4 +1,4 @@
-% GPU version
+% GPU VERSION
 
 % A function that time-evolve the initial density matrix and calculates
 % the resulting populations.
@@ -10,10 +10,10 @@
 %       part of the bath. Therefore N+1 is the overall number of TLSs
 % tmax: The final time at which the populations are calculated. Taken to be
 %       8000000000 in the example case
-% vel:  a matrix with column eigenvectors (from total_hamiltonian)
-% el:   diagonal matrix of eigenvalues (from total_hamiltonian)
+% vel:  a matrix with column eigenvectors (from diagonal)
+% el:   diagonal matrix of eigenvalues (from diagonal)
 % rho0:  The initial state of the system, bath in the ground state
-%       and qubit excited
+%       and qubit excited in the example case
 % 
 % Output:
 % 
