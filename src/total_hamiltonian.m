@@ -18,7 +18,6 @@
 %
 % gamma     Sets the magnitude of the internal coupling strength.
 %           Taken to be w/(5*sqrt(2)) in the example case.
-%           Physical justification for the choosen value?
 %
 % omega_j   a vector with the energy levels of the spins
 %
@@ -50,10 +49,6 @@ H1 = g+g';
 % Correct the Hamiltonian by replacing its diagonal elements with the
 % energy gaps of the spins of the bath.
 H1(1:N+1:end) = omega_j;
-
-% Diagonalize the bath Hamiltonian. vek1 is a matrix with column
-% eigenvectors and ek1 is a diagonal matrix of eigenvalues.
-% [vek1, ek1] = eig(H1);
 
 % BATH AND QUBIT
 
